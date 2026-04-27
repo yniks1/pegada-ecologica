@@ -1,0 +1,78 @@
+{
+  "alimentacao": [
+    {
+      "pergunta": "Você consome carne?",
+      "opcoes": [
+        { "resposta": "Diariamente", "pontos": 5 },
+        { "resposta": "Algumas vezes na semana", "pontos": 3 },
+        { "resposta": "Raramente", "pontos": 1 },
+        { "resposta": "Nunca", "pontos": 0 }
+      ]
+    },
+    {
+      "pergunta": "Você consome produtos industrializados?",
+      "opcoes": [
+        { "resposta": "Frequentemente", "pontos": 4 },
+        { "resposta": "Às vezes", "pontos": 2 },
+        { "resposta": "Raramente", "pontos": 1 }
+      ]
+    }
+  ],
+
+  "moradia": [
+    {
+      "pergunta": "Qual o tamanho da sua casa?",
+      "opcoes": [
+        { "resposta": "Grande", "pontos": 4 },
+        { "resposta": "Média", "pontos": 2 },
+        { "resposta": "Pequena", "pontos": 1 }
+      ]
+    },
+    {
+      "pergunta": "Quantas pessoas moram com você?",
+      "opcoes": [
+        { "resposta": "1-2 pessoas", "pontos": 1 },
+        { "resposta": "3-4 pessoas", "pontos": 2 },
+        { "resposta": "5 ou mais", "pontos": 3 }
+      ]
+    }
+  ],
+
+  "transporte": [
+    {
+      "pergunta": "Qual meio de transporte você mais utiliza?",
+      "opcoes": [
+        { "resposta": "Carro", "pontos": 5 },
+        { "resposta": "Transporte público", "pontos": 2 },
+        { "resposta": "Bicicleta/andar", "pontos": 0 }
+      ]
+    },
+    {
+      "pergunta": "Você viaja de avião com frequência?",
+      "opcoes": [
+        { "resposta": "Frequentemente", "pontos": 5 },
+        { "resposta": "Raramente", "pontos": 2 },
+        { "resposta": "Nunca", "pontos": 0 }
+      ]
+    }
+  ],
+
+  "consumo": [
+    {
+      "pergunta": "Com que frequência compra roupas?",
+      "opcoes": [
+        { "resposta": "Frequentemente", "pontos": 4 },
+        { "resposta": "Às vezes", "pontos": 2 },
+        { "resposta": "Raramente", "pontos": 1 }
+      ]
+    },
+    {
+      "pergunta": "Você separa o lixo para reciclagem?",
+      "opcoes": [
+        { "resposta": "Sempre", "pontos": 0 },
+        { "resposta": "Às vezes", "pontos": 2 },
+        { "resposta": "Nunca", "pontos": 4 }
+      ]
+    }
+  ]
+}
