@@ -2,24 +2,29 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Pegada Ecológica</title>
+  <title>🌱 Pegada Ecológica</title>
   <link rel="stylesheet" href="style.css">
 
-  <!-- Chart.js no lugar correto -->
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-  <h1>Calculadora de Pegada Ecológica</h1>
+  <div class="container">
 
-  <div id="formulario"></div>
+    <h1>🌱 Calculadora de Pegada Ecológica</h1>
+    <p class="subtitulo">Descubra seu impacto no planeta 🌍</p>
 
-  <button onclick="calcular()">Calcular</button>
+    <div id="formulario"></div>
 
-  <h2 id="resultado"></h2>
+    <button onclick="calcular()">Calcular 🌿</button>
 
-  <!-- Área do gráfico -->
-  <canvas id="grafico" width="400" height="200"></canvas>
+    <h2 id="resultado"></h2>
+
+    <!-- Gráfico -->
+    <canvas id="grafico" width="400" height="200"></canvas>
+
+  </div>
 
   <script src="script.js"></script>
 </body>

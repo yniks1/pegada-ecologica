@@ -1,24 +1,31 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f6f8;
-  padding: 20px;
+  background: linear-gradient(to right, #d4fc79, #96e6a1);
   margin: 0;
+  padding: 0;
+}
+
+/* Container */
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 /* Título */
 h1 {
   text-align: center;
-  color: #2c3e50;
+  color: #2e7d32;
 }
 
-/* Formulário */
-#formulario {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 600px;
-  margin: 20px auto;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+/* Subtítulo */
+.subtitulo {
+  text-align: center;
+  color: #555;
+  margin-bottom: 20px;
 }
 
 /* Perguntas */
@@ -30,23 +37,25 @@ h1 {
 button {
   display: block;
   margin: 20px auto;
-  padding: 10px 20px;
+  padding: 12px 25px;
   border: none;
-  background-color: #27ae60;
+  background: #2e7d32;
   color: white;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 button:hover {
-  background-color: #219150;
+  background: #1b5e20;
+  transform: scale(1.05);
 }
 
 /* Resultado */
 #resultado {
   text-align: center;
-  font-size: 20px;
+  font-size: 22px;
   margin-top: 20px;
 }
 
@@ -55,12 +64,10 @@ button:hover {
   text-align: center;
   margin-top: 10px;
   font-size: 16px;
-  color: #555;
+  color: #444;
 }
 
 /* Gráfico */
 #grafico {
-  display: block;
-  margin: 30px auto;
-  max-width: 500px;
+  margin-top: 30px;
 }
