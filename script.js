@@ -187,34 +187,63 @@ function gerarGrafico(total) {
   });
 }
 
-// 🔹 Dicas
-function gerarDicas(total) {
-  let dicas = "";
+// 🔹 Dicas Personalizadas (Abaixo do Gráfico)
+function gerarDicas() {
+  let dicasPersonalizadas = [];
 
-  if (total <= 5) {
-    dicas = "Você já possui hábitos sustentáveis. Continue assim!";
-  } else if (total <= 10) {
-    dicas = "Tente reduzir o consumo de carne e utilizar mais transporte público.";
-  } else {
-    dicas = "Considere reduzir consumo, reciclar mais e evitar uso excessivo de transporte.";
-  }
+  // Verifica cada resposta escolhida pelo usuário
+  document.querySelectorAll("input:checked").forEach(input => {
+    let valor = parseInt(input.value);
+    let categoria = input.name.split('-')[0]; // Pega a categoria (alimentacao, moradia, etc)
 
-  let areaDicas = document.getElementById("dicas");
+    // Se a resposta tiver pontuação de impacto médio/alto (>= 3), preparamos uma dica
+    if (valor >= 3) {
+      // Usamos .some() para não repetir a mesma dica caso a pessoa erre duas de moradia, por exemplo
+      if (categoria === "alimentacao" && !dicasPersonalizadas.some(d => d.cat === "alimentacao")) {
+        dicasPersonalizadas.push({ cat: "alimentacao", texto: "🍽️ <strong>Alimentação:</strong> Tente incluir mais refeições vegetarianas na semana e evite o excesso de produtos industrializados." });
+      }
+      if (categoria === "moradia" && !dicasPersonalizadas.some(d => d.cat === "moradia")) {
+        dicasPersonalizadas.push({ cat: "moradia", texto: "💡 <strong>Moradia:</strong> Fique de olho no tempo do banho para economizar água e desligue aparelhos da tomada quando não usar." });
+      }
+      if (categoria === "transporte" && !dicasPersonalizadas.some(d => d.cat === "transporte")) {
+        dicasPersonalizadas.push({ cat: "transporte", texto: "🚗 <strong>Transporte:</strong> Que tal experimentar o transporte público, organizar caronas ou andar de bicicleta em trajetos curtos?" });
+      }
+      if (categoria === "consumo" && !dicasPersonalizadas.some(d => d.cat === "consumo")) {
+        dicasPersonalizadas.push({ cat: "consumo", texto: "♻️ <strong>Consumo e Resíduos:</strong> Evite o descarte de óleo na pia (guarde em garrafas para coleta) e separe sempre o lixo reciclável." });
+      }
+    }
+  });
 
+  let areaDicas = document.getElementById("dicas-personalizadas");
+
+  // Se a área de dicas ainda não existir, nós a criamos no HTML
   if (!areaDicas) {
-    areaDicas = document.createElement("p");
-    areaDicas.id = "dicas";
+    areaDicas = document.createElement("div");
+    areaDicas.id = "dicas-personalizadas";
     
-    // Inserindo as dicas em um local mais organizado, logo abaixo do resultado
+    // Adiciona a caixa de dicas logo após o gráfico (dentro de result-area)
     const resultArea = document.querySelector(".result-area");
-    if(resultArea) {
-        resultArea.insertBefore(areaDicas, document.getElementById("grafico"));
-    } else {
-        document.body.appendChild(areaDicas);
+    if (resultArea) {
+        resultArea.appendChild(areaDicas);
     }
   }
 
-  areaDicas.innerText = dicas;
+  // Monta o conteúdo visual das dicas
+  if (dicasPersonalizadas.length > 0) {
+    let listaDicas = dicasPersonalizadas.map(dica => `<li>${dica.texto}</li>`).join("");
+    areaDicas.innerHTML = `
+        <h3>Dicas para melhorar sua pegada:</h3>
+        <ul>${listaDicas}</ul>
+    `;
+  } else {
+    // Se a pessoa tirou pontuação perfeita (tudo abaixo de 3)
+    areaDicas.innerHTML = `
+        <div class="mensagem-sucesso">
+            <h3>Parabéns! 🎉</h3>
+            <p>Seus hábitos já são excelentes para o planeta. Continue inspirando outras pessoas!</p>
+        </div>
+    `;
+  }
 }
 // 🔹 Funções do Modal "Sobre"
 function abrirModal(event) {

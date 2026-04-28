@@ -339,3 +339,45 @@ footer {
 .close-btn:hover {
     color: var(--primary-color);
 }
+/* 10. DICAS PERSONALIZADAS */
+#dicas-personalizadas {
+    margin-top: 40px;
+    padding: 25px;
+    background-color: rgba(16, 44, 38, 0.04); /* Fundo verdinho bem suave */
+    border-left: 4px solid var(--primary-color); /* Linha verde na lateral */
+    border-radius: 8px;
+    text-align: left;
+}
+
+#dicas-personalizadas h3 {
+    color: var(--primary-color);
+    font-size: 1.15rem;
+    margin-bottom: 15px;
+}
+
+#dicas-personalizadas ul {
+    list-style-type: none; /* Remove as bolinhas pretas padrão */
+    padding: 0;
+}
+
+#dicas-personalizadas li {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-color);
+    background: #ffffff; /* Fundo branco para destacar cada dica */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.mensagem-sucesso {
+    text-align: center;
+    padding: 15px;
+}
+
+.mensagem-sucesso h3 {
+    color: #2e7d32; /* Um verde mais vibrante para celebrar */
+    margin-bottom: 5px;
+}
