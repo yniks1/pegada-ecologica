@@ -1,31 +1,67 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>🌱 Pegada Ecológica</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌱 Pegada Ecológica | Calcule seu Impacto</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 
-  <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-  <div class="container">
+    <header>
+        <div class="logo">PEGADA ECOLÓGICA</div>
+        <nav>
+            <a href="#">INÍCIO</a>
+            <a href="#">SOBRE</a>
+        </nav>
+    </header>
 
-    <h1>🌱 Calculadora de Pegada Ecológica</h1>
-    <p class="subtitulo">Descubra seu impacto no planeta 🌍</p>
+    <main>
+        <section class="hero">
+            <h1>DESCUBRA O SEU IMPACTO NO PLANETA</h1>
+            <p>Responda a algumas perguntas simples sobre o seu estilo de vida e calcule a sua pegada ecológica.</p>
+            <button class="btn-start" onclick="document.getElementById('quiz').scrollIntoView({behavior: 'smooth'})">COMEÇAR O CÁLCULO</button>
+        </section>
 
-    <div id="formulario"></div>
+        <section id="quiz" class="quiz-container">
+            <div class="quiz-card">
+                
+                <div class="progress-container">
+                    <span id="step-text">Progresso do Cálculo</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="barra-progresso" style="width: 10%;"></div>
+                    </div>
+                </div>
 
-    <button onclick="calcular()">Calcular 🌿</button>
+                <div id="formulario">
+                    <h2 id="question">Carregando perguntas...</h2>
+                </div>
 
-    <h2 id="resultado"></h2>
+                <div class="quiz-footer">
+                    <button class="btn-next" onclick="calcular()">Calcular 🌿</button>
+                </div>
 
-    <!-- Gráfico -->
-    <canvas id="grafico" width="400" height="200"></canvas>
+                <div class="result-area">
+                    <h2 id="resultado"></h2>
+                    
+                    <div class="chart-container">
+                        <canvas id="grafico"></canvas>
+                    </div>
+                </div>
 
-  </div>
+            </div>
+        </section>
+    </main>
 
-  <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2026 Calculadora de Pegada Ecológica | Sustentabilidade e Futuro</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,73 +1,289 @@
+/* 1. CONFIGURAÇÕES GERAIS E VARIÁVEIS */
+:root {
+    --primary-color: #102C26; /* Verde Escuro */
+    --bg-color: #F7E7CE;      /* Creme */
+    --card-bg: #ffffff;       /* Branco para o card */
+    --text-color: #102C26;
+    --accent-color: #e0d1b8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif; /* Fonte moderna */
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #d4fc79, #96e6a1);
-  margin: 0;
-  padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    
+    /* Plantas minimalistas em SVG no fundo */
+    background-image: 
+        /* Planta do canto superior esquerdo */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23102C26' opacity='0.04'%3E%3Cpath d='M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 7.05,10.67 9,12C10.95,13.33 16,13 14,16C12,19 8.5,18.5 7.85,16.5C8.84,15.74 11.5,13.62 11.5,13.62C11.5,13.62 10.6,12.78 9.5,11.5C8.4,10.22 8,9 8,9C8,9 13,8 17,8Z'/%3E%3C/svg%3E"),
+        /* Planta do canto inferior direito (rotacionada) */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23102C26' opacity='0.05'%3E%3Cpath d='M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 7.05,10.67 9,12C10.95,13.33 16,13 14,16C12,19 8.5,18.5 7.85,16.5C8.84,15.74 11.5,13.62 11.5,13.62C11.5,13.62 10.6,12.78 9.5,11.5C8.4,10.22 8,9 8,9C8,9 13,8 17,8Z'/%3E%3C/svg%3E");
+    
+    /* Posicionamento para ficar nos cantos e não rolar com a tela */
+    background-repeat: no-repeat;
+    background-position: top -80px left -80px, bottom -80px right -80px;
+    background-size: 450px, 600px;
+    background-attachment: fixed;
 }
 
-/* Container */
-.container {
-  max-width: 700px;
-  margin: 40px auto;
-  background: white;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+/* 2. HEADER (Topo do Site) */
+header {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    padding: 1.5rem 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Título */
-h1 {
-  text-align: center;
-  color: #2e7d32;
+header .logo {
+    font-weight: 600;
+    letter-spacing: 2px;
 }
 
-/* Subtítulo */
-.subtitulo {
-  text-align: center;
-  color: #555;
-  margin-bottom: 20px;
+nav a {
+    color: var(--bg-color);
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.9rem;
+    font-weight: 300;
+    transition: opacity 0.3s;
 }
 
-/* Perguntas */
+nav a:hover {
+    opacity: 0.7;
+}
+
+/* 3. HERO SECTION (Introdução) */
+.hero {
+    text-align: center;
+    padding: 5rem 10% 3rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.hero p {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.btn-start {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 14px 35px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.btn-start:hover {
+    transform: translateY(-3px);
+    background-color: #1a463d;
+}
+
+/* 4. ÁREA DA CALCULADORA (Quiz Card) */
+.quiz-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 5% 8rem; /* Espaço para o footer não cobrir */
+}
+
+.quiz-card {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 700px;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(16, 44, 38, 0.08);
+}
+
+/* Títulos dentro do card */
+.quiz-card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Barra de Progresso */
+.progress-container {
+    margin-bottom: 2.5rem;
+}
+
+#step-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.progress-bar {
+    background: #f0f0f0;
+    height: 8px;
+    border-radius: 10px;
+}
+
+.progress-fill {
+    background: var(--primary-color);
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+/* 5. FORMULÁRIO DINÂMICO (Onde as perguntas aparecem) */
+#formulario {
+    margin-bottom: 20px;
+}
+
 #formulario div {
-  margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
-/* Botão */
+/* Estilo para labels/perguntas geradas pelo JS */
+#formulario label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+/* Estilo para inputs (se você usar select ou text) */
+#formulario input, #formulario select {
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid #eee;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+}
+
+#formulario input:focus {
+    border-color: var(--primary-color);
+}
+
+/* 5.1 GRID E BOTÕES DE OPÇÃO DAS PERGUNTAS */
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Coloca uma opção abaixo da outra em celulares */
+    gap: 12px;
+    margin-top: 15px;
+}
+
+/* Para telas maiores (computador), divide em duas colunas para aproveitar o espaço */
+@media (min-width: 600px) {
+    .options-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.option-btn {
+    background-color: #ffffff;
+    border: 2px solid #e0e0e0;
+    padding: 16px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    font-weight: 500;
+    display: block;
+}
+
+/* Efeito ao passar o mouse por cima */
+.option-btn:hover {
+    border-color: var(--primary-color);
+    background-color: rgba(16, 44, 38, 0.04);
+    transform: translateY(-2px); /* Dá um pequeno "pulo" suave */
+}
+
+/* Remove a margem padrão antiga para não desalinhar a nova grade */
+#formulario label.option-btn {
+    margin-bottom: 0;
+}
+
+/* 6. BOTÕES DE AÇÃO (Calcular / Próximo) */
+.quiz-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
 button {
-  display: block;
-  margin: 20px auto;
-  padding: 12px 25px;
-  border: none;
-  background: #2e7d32;
-  color: white;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
 button:hover {
-  background: #1b5e20;
-  transform: scale(1.05);
+    background-color: #1a463d;
+    transform: scale(1.02);
 }
 
-/* Resultado */
+/* 7. RESULTADOS E GRÁFICOS */
 #resultado {
-  text-align: center;
-  font-size: 22px;
-  margin-top: 20px;
+    text-align: center;
+    font-size: 22px;
+    margin-top: 30px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    color: var(--primary-color);
 }
 
-/* Dicas */
 #dicas {
-  text-align: center;
-  margin-top: 10px;
-  font-size: 16px;
-  color: #444;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #555;
+    font-style: italic;
 }
 
-/* Gráfico */
+/* Container que limita o tamanho do gráfico */
+.chart-container {
+    position: relative;
+    height: 250px; /* Altura restrita e minimalista */
+    width: 100%;
+    max-width: 450px; /* Impede que ele fique muito largo em telas grandes */
+    margin: 30px auto 0; /* O "auto" garante que fique perfeitamente centralizado */
+}
+
+/* Garante que o canvas respeite a caixa */
 #grafico {
-  margin-top: 30px;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* 8. FOOTER */
+footer {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.8rem;
+    position: relative; /* Mudado para não cobrir o conteúdo */
+    width: 100%;
 }
