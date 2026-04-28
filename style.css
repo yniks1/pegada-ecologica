@@ -381,3 +381,35 @@ footer {
     color: #2e7d32; /* Um verde mais vibrante para celebrar */
     margin-bottom: 5px;
 }
+/* 11. ÁREA DE LOGIN */
+#area-usuario {
+    margin-right: 20px;
+    background-color: rgba(247, 231, 206, 0.1);
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(247, 231, 206, 0.3);
+}
+
+#nome-usuario {
+    color: var(--bg-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-right: 15px;
+}
+
+#btn-sair {
+    color: #ff6b6b; /* Um vermelho suave para o botão de sair */
+    font-weight: 600;
+    margin-left: 0;
+}
+
+#btn-sair:hover {
+    opacity: 0.8;
+}
+
+#btn-login {
+    font-weight: 600;
+    border: 1px solid var(--bg-color);
+    padding: 5px 15px;
+    border-radius: 20px;
+}
