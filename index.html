@@ -27,6 +27,7 @@
             <a href="#" onclick="fazerLogin(event)" id="btn-login">ENTRAR COM GOOGLE</a>
             
             <a href="index.html">INÍCIO</a>
+            <a href="#" onclick="abrirModalOqueE(event)">O QUE É?</a> 
             <a href="#" onclick="abrirModal(event)">SOBRE</a>
         </nav>
     </header>
@@ -67,6 +68,14 @@
             </div>
         </section>
     </main>
+
+    <div id="modal-oque-e" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="fecharModalOqueE()">&times;</span>
+            <h2>O que é a Pegada Ecológica?</h2>
+            <p>A pegada ecológica mede o impacto das atividades humanas no meio ambiente, indicando a quantidade de recursos naturais como água, alimentos e energia necessária para sustentar um estilo de vida.</p>
+        </div>
+    </div>
 
     <div id="modal-sobre" class="modal">
         <div class="modal-content">

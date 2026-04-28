@@ -239,3 +239,11 @@ window.onclick = function(event) {
     const modal = document.getElementById("modal-sobre");
     if (event.target == modal) { modal.style.display = "none"; }
 }
+function abrirModalOqueE(event) {
+    if(event) event.preventDefault();
+    document.getElementById("modal-oque-e").style.display = "block";
+}
+
+function fecharModalOqueE() {
+    document.getElementById("modal-oque-e").style.display = "none";
+}
