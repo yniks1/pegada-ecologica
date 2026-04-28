@@ -17,7 +17,7 @@
         <div class="logo">PEGADA ECOLÓGICA</div>
         <nav>
             <a href="#">INÍCIO</a>
-            <a href="#">SOBRE</a>
+            <a href="#" onclick="abrirModal(event)">SOBRE</a>
         </nav>
     </header>
 
@@ -57,6 +57,15 @@
             </div>
         </section>
     </main>
+
+    <div id="modal-sobre" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="fecharModal()">&times;</span>
+            <h2>Sobre o Projeto</h2>
+            <p>Este projeto foi criado para conscientizar sobre o nosso impacto ambiental diário. Através de perguntas simples sobre moradia, alimentação e transporte, buscamos ajudar você a entender a sua pegada ecológica.</p>
+            <p>O objetivo é incentivar pequenos passos para a sustentabilidade, mostrando que mudanças simples de hábitos fazem uma grande diferença para o nosso planeta! 🌍🌱</p>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2026 Calculadora de Pegada Ecológica | Sustentabilidade e Futuro</p>

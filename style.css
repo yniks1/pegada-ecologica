@@ -287,3 +287,55 @@ footer {
     position: relative; /* Mudado para não cobrir o conteúdo */
     width: 100%;
 }
+/* 9. MODAL SOBRE */
+.modal {
+    display: none; /* Fica oculto até a pessoa clicar */
+    position: fixed;
+    z-index: 1000; /* Fica por cima de tudo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* Fundo escuro semi-transparente usando o seu Verde Escuro */
+    background-color: rgba(16, 44, 38, 0.6); 
+    backdrop-filter: blur(4px); /* Dá aquele efeito de desfoque moderno no fundo */
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    margin: 10% auto; /* Centraliza vertical e horizontalmente */
+    padding: 3rem;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 550px;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    color: var(--text-color);
+}
+
+.modal-content h2 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.modal-content p {
+    margin-bottom: 1rem;
+    opacity: 0.9;
+    font-size: 1.05rem;
+}
+
+/* O botão 'X' de fechar */
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: var(--primary-color);
+}

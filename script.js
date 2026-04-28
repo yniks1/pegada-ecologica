@@ -216,3 +216,20 @@ function gerarDicas(total) {
 
   areaDicas.innerText = dicas;
 }
+// 🔹 Funções do Modal "Sobre"
+function abrirModal(event) {
+    if(event) event.preventDefault(); // Evita que a página pule para o topo ao clicar no link
+    document.getElementById("modal-sobre").style.display = "block";
+}
+
+function fecharModal() {
+    document.getElementById("modal-sobre").style.display = "none";
+}
+
+// Fecha o modal se o usuário clicar em qualquer lugar fora da caixinha branca
+window.onclick = function(event) {
+    const modal = document.getElementById("modal-sobre");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
