@@ -95,6 +95,9 @@ function montarFormulario() {
           });
           label.style.borderColor = "var(--primary-color)";
           label.style.backgroundColor = "rgba(16, 44, 38, 0.05)";
+          
+          // 👇 ATUALIZA A BARRA DE PROGRESSO AO CLICAR 👇
+          atualizarProgresso();
         });
 
         label.appendChild(input);
@@ -107,6 +110,29 @@ function montarFormulario() {
       contadorPerguntas++;
     });
   });
+}
+
+// 🔹 ATUALIZA A BARRA DE PROGRESSO
+function atualizarProgresso() {
+  // Conta quantas perguntas existem no total
+  const totalPerguntas = document.querySelectorAll('.options-grid').length;
+  // Conta quantas perguntas já tiveram uma opção selecionada
+  const perguntasRespondidas = document.querySelectorAll("input:checked").length;
+  
+  // Calcula a porcentagem
+  const porcentagem = (perguntasRespondidas / totalPerguntas) * 100;
+  
+  // Faz a barra crescer visualmente
+  const barraProgresso = document.getElementById("barra-progresso");
+  if (barraProgresso) {
+    barraProgresso.style.width = porcentagem + "%";
+  }
+
+  // Atualiza o textinho em cima da barra
+  const stepText = document.getElementById("step-text");
+  if (stepText) {
+    stepText.innerText = `Progresso: ${Math.round(porcentagem)}%`;
+  }
 }
 
 function calcular() {
