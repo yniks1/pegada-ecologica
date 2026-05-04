@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="style.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Biblioteca para gerar imagem do resultado -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     
     <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth-compat.js"></script>
@@ -59,6 +61,23 @@
 
                 <div class="result-area">
                     <h2 id="resultado"></h2>
+                    <!-- Botões de Compartilhar -->
+<div class="botoes-compartilhar" id="botoes-compartilhar" style="display: none;">
+    <button onclick="compartilharWhatsApp()" class="btn-whatsapp">📲 Enviar no WhatsApp</button>
+    <button onclick="baixarCartao()" class="btn-download">📸 Baixar Cartão para Postar</button>
+</div>
+
+<!-- O Cartão que será transformado em Imagem (Ele fica invisível na tela) -->
+<div id="cartao-instagram" class="cartao-instagram">
+    <h3 class="cartao-titulo">Minha Pegada Ecológica 🌱</h3>
+    <p class="cartao-resultado" id="cartao-resultado-texto"></p>
+    <div class="cartao-pontos">
+        <span id="cartao-pontos-numero"></span>
+        <small>pontos</small>
+    </div>
+    <p class="cartao-chamada">Faça o teste e descubra o seu impacto no planeta!</p>
+    <div class="cartao-site">seusite.com.br</div> <!-- Você pode trocar pelo link real depois -->
+</div>
                     
                     <div class="chart-container">
                         <canvas id="grafico"></canvas>
