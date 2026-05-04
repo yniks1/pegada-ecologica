@@ -247,3 +247,37 @@ function abrirModalOqueE(event) {
 function fecharModalOqueE() {
     document.getElementById("modal-oque-e").style.display = "none";
 }
+// 🔹 FUNÇÕES DE COMPARTILHAMENTO
+function compartilharWhatsApp() {
+    // Puxa o resultado salvo no local storage
+    const total = localStorage.getItem("resultadoPegada");
+    // Mensagem que vai pronta pro WhatsApp (Não esqueça de colocar o seu link real ali no final)
+    const texto = `Acabei de calcular minha Pegada Ecológica e fiz ${total} pontos! 🌱 Descubra o seu impacto no planeta também: https://seusite.com.br`;
+    const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(texto)}`;
+    window.open(url, '_blank');
+}
+
+function baixarCartao() {
+    // Muda o texto do botão temporariamente para dar feedback
+    const btn = document.querySelector('.btn-download');
+    const textoOriginal = btn.innerHTML;
+    btn.innerHTML = "⏳ Gerando imagem...";
+
+    const cartao = document.getElementById('cartao-instagram');
+    
+    // Tira a "foto" do elemento HTML
+    html2canvas(cartao, { scale: 1 }).then(canvas => {
+        // Cria um link de download e clica nele automaticamente
+        const link = document.createElement('a');
+        link.download = 'MinhaPegadaEcologica.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        
+        // Volta o botão ao normal
+        btn.innerHTML = textoOriginal;
+    }).catch(err => {
+        console.error("Erro ao gerar a imagem: ", err);
+        btn.innerHTML = textoOriginal;
+        alert("Opa! Tivemos um problema ao gerar a imagem.");
+    });
+}
