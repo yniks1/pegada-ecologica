@@ -413,3 +413,56 @@ footer {
     padding: 5px 15px;
     border-radius: 20px;
 }
+/* ========================================== */
+/* BOTÕES DE COMPARTILHAMENTO E CARTÃO IG     */
+/* ========================================== */
+.botoes-compartilhar {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Para não quebrar no celular */
+}
+
+.btn-whatsapp {
+    background-color: #25D366 !important; /* Cor oficial do WhatsApp */
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E !important;
+}
+
+.btn-download {
+    background-color: var(--primary-color) !important;
+}
+
+/* Design do Cartão Oculto */
+.cartao-instagram {
+    width: 1080px;  /* Tamanho ideal para feed do Instagram */
+    height: 1080px;
+    background: var(--primary-color);
+    color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px;
+    position: absolute; /* Esconde o elemento da tela normal */
+    left: -9999px;      
+    top: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.cartao-titulo { font-size: 60px; margin-bottom: 20px; font-weight: 300; }
+.cartao-resultado { font-size: 90px; margin-bottom: 60px; font-weight: bold; color: #fff;}
+.cartao-pontos { 
+    background: rgba(255,255,255,0.1); 
+    padding: 40px 80px; 
+    border-radius: 40px; 
+    margin-bottom: 80px;
+}
+.cartao-pontos span { font-size: 150px; font-weight: bold; display: block; line-height: 1;}
+.cartao-pontos small { font-size: 40px; text-transform: uppercase; letter-spacing: 5px;}
+.cartao-chamada { font-size: 45px; opacity: 0.9; margin-bottom: 40px;}
+.cartao-site { font-size: 35px; opacity: 0.6; font-weight: 600; letter-spacing: 2px;}
