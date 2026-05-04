@@ -137,20 +137,36 @@ function atualizarProgresso() {
 
 function calcular() {
   let total = 0;
+  
+  // 1. Faz a soma dos pontos
   document.querySelectorAll("input:checked").forEach(input => {
     total += parseInt(input.value);
   });
 
+  // 2. Define o resultado
   let resultado = "";
   if (total <= 5) { resultado = "Baixa pegada ecológica 🌱"; }
   else if (total <= 10) { resultado = "Pegada moderada ⚖️"; }
   else { resultado = "Alta pegada ecológica ⚠️"; }
 
+  // 3. Mostra na tela e salva
   document.getElementById("resultado").innerText = resultado + " (Pontos: " + total + ")";
   localStorage.setItem("resultadoPegada", total);
 
+  // 4. Gera gráfico e dicas
   gerarGrafico(total);
   gerarDicas();
+
+  // 5. Mostra o botão de reiniciar (que já tínhamos feito)
+  const btnReiniciar = document.getElementById('btn-reiniciar');
+  if (btnReiniciar) btnReiniciar.style.display = 'block';
+
+  // 👇 6. CÓDIGO NOVO: PREENCHE O CARTÃO E MOSTRA OS BOTÕES DE COMPARTILHAR 👇
+  document.getElementById('cartao-resultado-texto').innerText = resultado; 
+  document.getElementById('cartao-pontos-numero').innerText = total;
+  
+  const botoesCompartilhar = document.getElementById('botoes-compartilhar');
+  if (botoesCompartilhar) botoesCompartilhar.style.display = 'flex';
 }
 
 function gerarGrafico(total) {
